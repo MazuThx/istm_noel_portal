@@ -57,7 +57,7 @@ body{margin:0;font-family:var(--font-sans);color:var(--color-text);background:va
 /* Background layers                                                   */
 /* =================================================================== */
 .bg-layer{position:fixed;inset:0;z-index:-1}
-body.bg-image .bg-layer{background:center/cover no-repeat url("./assets/img/bg-noel-hero.jpg.png")}
+body.bg-image .bg-layer{background:center/cover no-repeat url("./assets/img/bg-noel-hero.png")}
 body.bg-video .bg-layer{background:none}
 .bg-video-elt{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .3s ease}
 body.bg-video .bg-video-elt{opacity:1}
