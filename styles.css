@@ -165,7 +165,9 @@ body.bg-video .bg-video-elt{opacity:1}
   margin:0 0 var(--space-5);
   font-size:clamp(24px,4vw,44px);
   font-weight:800;
+  color:var(--noel-gold);
   letter-spacing:.02em
+  
 }
 
 /* Searchbar */
