@@ -291,3 +291,44 @@ body.bg-video .bg-video-elt{opacity:1}
   position:absolute;width:1px;height:1px;padding:0;margin:-1px;
   overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0
 }
+
+/* Tooltip flottant (géré en JS, compatible header collant) */
+.tooltip-float {
+  position: absolute;
+  z-index: 2000;
+  background: rgba(17,24,39,.95);
+  color: #fff;
+  padding: 6px 8px;
+  border-radius: 8px;
+  font-size: 12px;
+  line-height: 1.2;
+  box-shadow: 0 6px 18px rgba(0,0,0,.25);
+  white-space: nowrap;
+  pointer-events: none;
+  animation: fadeInTooltip .15s ease-out;
+}
+
+/* Petit triangle */
+.tooltip-float::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+}
+
+.tooltip-float[data-flip="top"]::after {
+  bottom: -12px;
+  border-top-color: rgba(17,24,39,.95);
+}
+.tooltip-float[data-flip="bottom"]::after {
+  top: -12px;
+  border-bottom-color: rgba(17,24,39,.95);
+}
+
+/* Animation d’apparition douce */
+@keyframes fadeInTooltip {
+  from {opacity: 0; transform: translateY(2px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
