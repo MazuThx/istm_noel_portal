@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="noel">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portail ITSM – Accueil (Noël)</title>
+  <meta name="description" content="Accueil du portail ITSM EasyVista - thème Noël : rechercher, déclarer un incident, effectuer une demande, suivre ses tickets." />
+  <link rel="stylesheet" href="./styles.css" />
+
+  <!-- Pré-chargement des icônes clés (optionnel) -->
+  <link rel="preload" as="image" href="./assets/icons/icons8-christmas-stocking-50.png">
+  <link rel="preload" as="image" href="./assets/icons/icons8-jingle-bell-50.png">
+  <link rel="preload" as="image" href="./assets/icons/icons8-snowman-50.png">
+  <link rel="preload" as="image" href="./assets/icons/icons8-loupe.png">
+  <link rel="preload" as="image" href="./assets/icons/icons8-grincheux-50.png">
+  <link rel="preload" as="image" href="./assets/icons/icons8-where-is-new-year-50.png">
+  <link rel="preload" as="image" href="./assets/icons/icons8-sparkling-50.png">
+  <link rel="preload" as="image" href="./assets/icons/icons8-elf-50.png">
+</head>
+
+<!--
+  Fond :
+  - .bg-image (par défaut) → image CSS via .bg-layer
+  - .bg-video → vidéo MP4 via <video>
+  Dépôt fichiers : /assets/img/bg-noel-hero.jpg et /assets/video/neige.mp4
+-->
+<body class="bg-image" data-background="image">
+  <div class="page"><!-- wrapper -->
+
+    <!-- ================================================================ -->
+    <!-- Header / AppBar  (data-module="header")                         -->
+    <!-- ================================================================ -->
+    <header class="appbar" data-module="header">
+      <!-- Burger -->
+      <button id="burger" class="burger" aria-label="Ouvrir le menu" aria-controls="mainmenu" aria-expanded="false">
+        <span class="burger-box" aria-hidden="true"><span class="burger-lines"></span></span>
+        <span class="burger-label">MENU</span>
+      </button>
+
+      <!-- Branding centré -->
+      <div class="brand" aria-label="Nom de l'application">EASYVISTA</div>
+
+      <!-- Actions à droite : icônes PNG + tooltips, sans libellés texte -->
+      <nav class="actions" aria-label="Actions principales" data-module="top-actions">
+        <!-- Ticket (badge 3) -->
+        <a href="#tickets" class="icon-link tooltip" aria-label="Tickets" data-tooltip="Tickets">
+          <img class="icon-img"
+               src="./assets/icons/icons8-christmas-stocking-50.png"
+               srcset="./assets/icons/icons8-christmas-stocking-50.png 1x, ./assets/icons/icons8-christmas-stocking-50@2x.png 2x"
+               alt="" aria-hidden="true">
+          <span class="badge" data-badge="ticket" aria-label="3 notifications">3</span>
+        </a>
+
+        <!-- Validation (badge 4) -->
+        <a href="#validations" class="icon-link tooltip" aria-label="Validation" data-tooltip="Validation">
+          <img class="icon-img
+               " src="./assets/icons/icons8-jingle-bell-50.png"
+               srcset="./assets/icons/icons8-jingle-bell-50.png 1x, ./assets/icons/icons8-jingle-bell-50@2x.png 2x"
+               alt="" aria-hidden="true">
+          <span class="badge" data-badge="validation" aria-label="4 notifications">4</span>
+        </a>
+
+        <!-- Profil -->
+        <a href="#profil" class="icon-link tooltip" aria-label="Profil" data-tooltip="Profil">
+          <img class="icon-img"
+               src="./assets/icons/icons8-snowman-50.png"
+               srcset="./assets/icons/icons8-snowman-50.png 1x, ./assets/icons/icons8-snowman-50@2x.png 2x"
+               alt="" aria-hidden="true">
+        </a>
+      </nav>
+
+      <!-- Menu déroulant (burger) -->
+      <nav id="mainmenu" class="mainmenu" aria-label="Menu principal" hidden>
+        <ul>
+          <li><a href="#tickets">Mes tickets</a></li>
+          <li><a href="#catalogue">Catalogue</a></li>
+          <li><a href="#aide">Aide & support</a></li>
+          <li><a href="#profil">Mon profil</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- ================================================================ -->
+    <!-- Background layer (image/vidéo)                                  -->
+    <!-- ================================================================ -->
+    <div class="bg-layer" aria-hidden="true" data-module="background">
+      <video id="bgVideo" class="bg-video-elt" autoplay muted loop playsinline>
+        <source src="./assets/video/neige.mp4" type="video/mp4" />
+      </video>
+    </div>
+
+    <!-- ================================================================ -->
+    <!-- Contenu principal                                                -->
+    <!-- ================================================================ -->
+    <main id="contenu" class="main">
+      <!-- Hero + Search -->
+      <section class="hero" data-module="search">
+        <h1 class="hero-title">Joyeuse Fêtes Eddy !</h1>
+
+        <form class="searchbar" role="search" aria-label="Recherche dans le catalogue">
+          <label for="q" class="sr-only">Recherche</label>
+          <input id="q" name="q" type="search"
+                 placeholder="Rechercher dans le catalogue du père Noël"
+                 autocomplete="off" inputmode="search" />
+          <button type="submit" class="btn-search" aria-label="Lancer la recherche">
+            <img class="loupe"
+                 src="./assets/icons/icons8-loupe.png"
+                 srcset="./assets/icons/icons8-loupe.png 1x, ./assets/icons/icons8-loupe@2x.png 2x"
+                 alt="" aria-hidden="true">
+          </button>
+        </form>
+      </section>
+
+      <!-- 3 cartes avec hauteur fixe -->
+      <section class="grid3" data-module="shortcuts" aria-label="Raccourcis principaux">
+        <a class="card" href="#incident">
+          <div class="card-icon" aria-hidden="true">
+            <img class="card-icon-img"
+                 src="./assets/icons/icons8-grincheux-50.png"
+                 srcset="./assets/icons/icons8-grincheux-50.png 1x, ./assets/icons/icons8-grincheux-50@2x.png 2x"
+                 alt="">
+          </div>
+          <h2 class="card-title">Un lutin a cassé quelques chose</h2>
+          <p class="card-text">Déclarer un incident ou obtenir de l’aide rapidement.</p>
+        </a>
+
+        <a class="card" href="#catalogue" id="catalogue">
+          <div class="card-icon" aria-hidden="true">
+            <img class="card-icon-img"
+                 src="./assets/icons/icons8-where-is-new-year-50.png"
+                 srcset="./assets/icons/icons8-where-is-new-year-50.png 1x, ./assets/icons/icons8-where-is-new-year-50@2x.png 2x"
+                 alt="">
+          </div>
+          <h2 class="card-title">Je prépare ma liste au père Noel</h2>
+          <p class="card-text">Parcourir le catalogue de services et faire une demande.</p>
+        </a>
+
+        <a class="card" href="#suivi">
+          <div class="card-icon" aria-hidden="true">
+            <img class="card-icon-img"
+                 src="./assets/icons/icons8-sparkling-50.png"
+                 srcset="./assets/icons/icons8-sparkling-50.png 1x, ./assets/icons/icons8-sparkling-50@2x.png 2x"
+                 alt="">
+          </div>
+          <h2 class="card-title">Suivre mes voeux IT en cours</h2>
+          <p class="card-text">Consulter l’avancement de mes tickets et validations.</p>
+        </a>
+      </section>
+
+      <!-- Bandeau info (hauteur fixe) -->
+      <aside class="info-banner" role="note" data-module="infobanner" aria-live="polite">
+        <p>Astuce du jour : redémarrer son PC, c’est comme secouer une boule à neige - parfois, ça résout bien des choses !</p>
+      </aside>
+    </main>
+
+    <!-- Chatbot (sticky) -->
+    <a id="chatbot-btn" class="chatbot-btn tooltip" href="#chatbot"
+       aria-label="Ouvrir l’assistant virtuel" data-module="chatbot-button"
+       data-tooltip="Assistant">
+      <img class="icon-img"
+           src="./assets/icons/icons8-elf-50.png"
+           srcset="./assets/icons/icons8-elf-50.png 1x, ./assets/icons/icons8-elf-50@2x.png 2x"
+           alt="" aria-hidden="true">
+    </a>
+    <div id="chatbot" class="chatbot-anchor" tabindex="-1" aria-label="Ancre assistant virtuel"></div>
+
+  </div><!-- /.page -->
+  <script defer src="./app.js"></script>
+</body>
+</html>
