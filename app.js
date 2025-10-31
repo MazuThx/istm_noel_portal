@@ -61,4 +61,51 @@ document.addEventListener('DOMContentLoaded', () => {
   if (chatbotBtn && chatbotAnchor) {
     chatbotBtn.addEventListener('click', () => setTimeout(() => chatbotAnchor.focus(), 50));
   }
+/* ========================================================= */
+/* TOOLTIP AUTO-FLIP (haut/bas selon la place disponible)    */
+/* ========================================================= */
+document.querySelectorAll('.tooltip').forEach(tt => {
+  // Créer un conteneur unique pour le tooltip (facilite le positionnement)
+  let tipBox;
+
+  tt.addEventListener('mouseenter', e => {
+    const text = tt.getAttribute('data-tooltip');
+    if (!text) return;
+
+    tipBox = document.createElement('div');
+    tipBox.className = 'tooltip-float';
+    tipBox.textContent = text;
+    document.body.appendChild(tipBox);
+
+    // Position initiale centrée
+    const rect = tt.getBoundingClientRect();
+    const tipRect = tipBox.getBoundingClientRect();
+    let top = rect.top - tipRect.height - 8;
+    let left = rect.left + rect.width / 2 - tipRect.width / 2;
+    let flip = false;
+
+    // Si le tooltip dépasse en haut, on le place en bas
+    if (top < 0) {
+      top = rect.bottom + 8;
+      flip = true;
+    }
+
+    // Ajuster pour éviter le débordement à droite/gauche
+    if (left < 4) left = 4;
+    if (left + tipRect.width > window.innerWidth - 4)
+      left = window.innerWidth - tipRect.width - 4;
+
+    // Appliquer le style dynamique
+    tipBox.style.top = `${top + window.scrollY}px`;
+    tipBox.style.left = `${left}px`;
+    tipBox.dataset.flip = flip ? 'bottom' : 'top';
+  });
+
+  tt.addEventListener('mouseleave', () => {
+    if (tipBox) {
+      tipBox.remove();
+      tipBox = null;
+    }
+  });
 });
+
