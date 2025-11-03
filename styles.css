@@ -13,9 +13,11 @@
   --noel-red:#B71C1C;
   --noel-red-strong:#C62828; /* bandeau info */
   --noel-gold:#C9A227;
+  --noel-white:#FFFF;
 
   --color-accent:var(--noel-green);
   --color-accent-2:var(--noel-gold);
+  --color-accent-3:var(--noel-white);
   --color-danger:var(--noel-red-strong);
 
   /* Typo / métriques */
@@ -186,7 +188,7 @@ body.bg-video .bg-video-elt{opacity:1}
 .searchbar input:focus{outline:none}
 .btn-search{
   display:inline-flex;align-items:center;justify-content:center;
-  border:0;background:var(--color-accent);color:#fff;
+  border:0;background:var(--color-accent-3);color:#fff;
   width:44px;height:44px;border-radius:999px;cursor:pointer
 }
 .btn-search:hover{filter:brightness(.95)}
